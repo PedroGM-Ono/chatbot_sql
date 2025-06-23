@@ -18,11 +18,38 @@
 
 ```bash
 .
-├── populate_db.py         # Populate the SQLite DB from Excel
 ├── text2sql_script.py     # Run chatbot to ask questions
 ├── database/
 │   └── vendas_retail.db   # Generated SQLite database
-├── raw_data.xlsx          # Input Excel file with raw sales data
-├── models/
-│   └── mistral-7b-instruct-v0.1.Q4_K_M.gguf  # LLM model file
+│   └── populate_db.py     # Populate the SQLite DB from Excel
+│   └── raw_data.xlsx          # Input Excel file with raw sales data
+├── requirements.txt       # Python requirements for the project
+├── models/                # LLM model file
+│   └──# Put the models files here
 └── README.md
+
+```
+
+
+## Instructions
+1. Create and activate a Python env
+```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+```
+2. Install the dependencies
+```bash
+  pip install -r requirements.txt
+```
+3. Download the LLM you would like to use on the 'models/' folder
+```bash
+wget  "https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/resolve/main/mistral-7b-instruct-v0.1.Q4_K_M.gguf"
+```
+4. Run the populate database script to generate the db file:
+```bash
+python database/populate
+```
+
+
+
+
