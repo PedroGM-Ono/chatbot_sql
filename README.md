@@ -58,61 +58,66 @@ python text2sql_script.py
 
 ## Tests
 1. Sua pergunta: Qual o faturamento total por produto?
--------Query gerada-------
+---
+Query gerada
+---
  ```sql
 SELECT products.name, SUM(products.unit_price * sales.quantity) AS total_revenue
 FROM products
 JOIN sales ON products.product_id = sales.product_id
 GROUP BY products.name;
 ```
-Resultado:
-                                  name  total_revenue
-0                 Air Fryer Mondial 4L         533630
-1               Aspirador de Pó Philco         483420
-2                  Bicicleta Caloi 100        1759800
-3           Bola de Futebol Nike Campo         271400
-4                 Boné New Era Yankees         235440
-5     Cafeteira Nespresso Essenza Mini         619320
-6                Caixa de Som JBL Go 3         271170
-7               Calça Legging Nike Pro         381080
-8   Carregador Portátil Anker 10000mAh         222660
-9                Console PlayStation 5        2227005
-10              Câmera Canon EOS Rebel        2185600
-11                    Drone DJI Mini 2        1913953
-12           Esteira Elétrica Movement        1886850
-13                Fogão Consul 4 bocas        1258100
-14       Fone Bluetooth Samsung Buds 2         769599
-15                  Fone de Ouvido JBL         395150
-16             Geladeira Brastemp 375L        2252250
-17       Headset Gamer HyperX Cloud II         598520
-18      Impressora Epson EcoTank L3250        1355165
-19               Impressora HP DeskJet         593760
-20          Jaqueta Corta Vento Adidas         522900
-21              Micro-ondas Electrolux         786160
-22        Mochila Lenovo para notebook         184200
-23                      Monitor LG 24"        1165200
-24     Mouse Gamer Razer DeathAdder V2         368960
-25                 Mouse Logitech M170          92025
-26               Máquina de Lavar 11kg        1660600
-27              Notebook Dell Inspiron        2515500
-28       Patins Rollerblade Zetrablade        1023961
-29      Placa de Vídeo Nvidia RTX 4060        2291045
-30           Relógio Smartwatch Xiaomi         518400
-31                SSD Kingston NV2 1TB         600480
-32                Smart TV Samsung 50"        1992300
-33         Smartphone Motorola Edge 40        2425726
-34              Smartphone Samsung A34        1732437
-35                Smartphone iPhone 14         224970
-36            Soundbar Samsung HW-T450        1294704
-37     Teclado Logitech K380 Bluetooth         280500
-38           Teclado Mecânico Redragon         297750
-39               Tênis Nike Revolution         407040
-40             Ventilador Mondial 40cm         246800
-41      Óculos de Sol Ray-Ban Wayfarer         761360
+| #  | name                                | total_revenue |
+|----|-------------------------------------|----------------|
+| 0  | Air Fryer Mondial 4L               | 533630         |
+| 1  | Aspirador de Pó Philco             | 483420         |
+| 2  | Bicicleta Caloi 100                | 1759800        |
+| 3  | Bola de Futebol Nike Campo         | 271400         |
+| 4  | Boné New Era Yankees               | 235440         |
+| 5  | Cafeteira Nespresso Essenza Mini  | 619320         |
+| 6  | Caixa de Som JBL Go 3              | 271170         |
+| 7  | Calça Legging Nike Pro             | 381080         |
+| 8  | Carregador Portátil Anker 10000mAh | 222660         |
+| 9  | Console PlayStation 5              | 2227005        |
+| 10 | Câmera Canon EOS Rebel             | 2185600        |
+| 11 | Drone DJI Mini 2                   | 1913953        |
+| 12 | Esteira Elétrica Movement          | 1886850        |
+| 13 | Fogão Consul 4 bocas               | 1258100        |
+| 14 | Fone Bluetooth Samsung Buds 2      | 769599         |
+| 15 | Fone de Ouvido JBL                 | 395150         |
+| 16 | Geladeira Brastemp 375L            | 2252250        |
+| 17 | Headset Gamer HyperX Cloud II      | 598520         |
+| 18 | Impressora Epson EcoTank L3250     | 1355165        |
+| 19 | Impressora HP DeskJet              | 593760         |
+| 20 | Jaqueta Corta Vento Adidas         | 522900         |
+| 21 | Micro-ondas Electrolux             | 786160         |
+| 22 | Mochila Lenovo para notebook       | 184200         |
+| 23 | Monitor LG 24"                     | 1165200        |
+| 24 | Mouse Gamer Razer DeathAdder V2    | 368960         |
+| 25 | Mouse Logitech M170                | 92025          |
+| 26 | Máquina de Lavar 11kg              | 1660600        |
+| 27 | Notebook Dell Inspiron             | 2515500        |
+| 28 | Patins Rollerblade Zetrablade      | 1023961        |
+| 29 | Placa de Vídeo Nvidia RTX 4060     | 2291045        |
+| 30 | Relógio Smartwatch Xiaomi          | 518400         |
+| 31 | SSD Kingston NV2 1TB               | 600480         |
+| 32 | Smart TV Samsung 50"               | 1992300        |
+| 33 | Smartphone Motorola Edge 40        | 2425726        |
+| 34 | Smartphone Samsung A34             | 1732437        |
+| 35 | Smartphone iPhone 14               | 224970         |
+| 36 | Soundbar Samsung HW-T450           | 1294704        |
+| 37 | Teclado Logitech K380 Bluetooth    | 280500         |
+| 38 | Teclado Mecânico Redragon          | 297750         |
+| 39 | Tênis Nike Revolution              | 407040         |
+| 40 | Ventilador Mondial 40cm            | 246800         |
+| 41 | Óculos de Sol Ray-Ban Wayfarer     | 761360         |
+
 
 
 2. Qual o total de vendas por produto?
--------Query gerada-------
+---
+Query gerada
+---
  ```sql
 SELECT products.name, SUM(sales.quantity) AS total_sales
 FROM clients
@@ -167,7 +172,9 @@ Resultado:
 
 
 3. Sua pergunta: Qual o faturamento total por loja?
--------Query gerada-------
+---
+Query gerada
+---
  ```sql
 SELECT stores.region, stores.address, SUM(sales.quantity * products.unit_price) AS total_revenue
 FROM sales
@@ -195,7 +202,9 @@ Resultado:
 14           Sul  Trevo de Ferreira, 68, Santana Do Cafezal, 261...        2120664
 
 4. Sua pergunta: Quais os vendedores com os maiores números de pedidos?
--------Query gerada-------
+---
+Query gerada
+---
  ```sql
 SELECT sellers.name, COUNT(*) as order_count
 FROM sales
@@ -218,7 +227,9 @@ Resultado:
 9    Maitê          814
 
 5. Sua pergunta: Qual o número de vendas por forma de pagamento?
--------Query gerada-------
+---
+Query gerada
+---
  ```sql
 SELECT 
     payment,
@@ -237,7 +248,9 @@ Resultado:
 4      Pix         1653
 
 6. Qual o faturamento por categoria de produto?
--------Query gerada-------
+---
+Query gerada
+---
  ```sql
 SELECT products.category, SUM(sales.quantity * products.unit_price) AS total_billing
 FROM sales
